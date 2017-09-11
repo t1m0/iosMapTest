@@ -7,15 +7,20 @@
 //
 
 import UIKit
-
+import GoogleMaps
+import GooglePlaces
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    static let googleWebApiKey = "APIKEY" // use your key
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // register our client with google
+        GMSServices.provideAPIKey(AppDelegate.googleWebApiKey)
+        GMSPlacesClient.provideAPIKey(AppDelegate.googleWebApiKey)
         return true
     }
 
